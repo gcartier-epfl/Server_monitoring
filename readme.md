@@ -12,9 +12,8 @@
 - textual  
 - urwid (example : s-tui)  
 
-### Données à recevoir  
-
-#### Serveurs  
+### Données à afficher des Serveurs / Workstation
+- OS
 - Online  
 - Charge :
   - CPU
@@ -31,4 +30,3 @@
   - Python  
   - ...  
 
-#### Workstation

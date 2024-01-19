@@ -1,0 +1,13 @@
+Servers :
+  lbem-storage :
+    ip : "128.178.241.106"
+    alias : "lbemsrv4"
+    os : "Red Hat"
+    os_version : "8.8"
+
+Workstations : 
+  lebpc6 : 
+    ip : "128.178.66.53"
+    os : "Rocky"
+    os_version : "8.9"
+    

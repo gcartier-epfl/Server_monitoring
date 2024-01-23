@@ -1,3 +1,4 @@
+import os
 import subprocess
 import platform
 import yaml
@@ -47,5 +48,6 @@ def main() -> int :
         print( platform.version() )
 
 
-main()
-    
+# main()
+
+print( os.getcwd() )    

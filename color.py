@@ -23,4 +23,4 @@ test =  colored( "Header", txt_colors.PURPLE, txt_effect.BOLD ) + \
         colored( "WARNING", txt_colors.ORANGE ) + \
         colored( "FAIL", txt_colors.RED )
 
-print( test )
+# print( test )

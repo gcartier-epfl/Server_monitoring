@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import os
 import subprocess
 import platform
@@ -49,5 +51,3 @@ def main() -> int :
 
 
 # main()
-
-print( os.getcwd() )    

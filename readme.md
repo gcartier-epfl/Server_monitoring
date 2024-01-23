@@ -51,6 +51,6 @@
 > `host=0.0.0.0` et `port=8000` => Accepte toutes les connections. Voir pour utiliser les ip précises de chaque serveur pour `host`.  
   
 - Running the server uvicorn as a service systemd : https://github.com/encode/uvicorn/issues/678
-> fichiers de service semblent se trouver dans `/lib/systemd/system`
+> Créer son propre service systemd `https://www.shubhamdipt.com/blog/how-to-create-a-systemd-service-in-linux/`
 
 

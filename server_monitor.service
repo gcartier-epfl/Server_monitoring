@@ -1,0 +1,13 @@
+Description=Serveur REST de liaison pour le service de serveur monitoring
+
+[Service]
+Type=simple
+ExecStart=/var/users/gcartier/Server_monitoring/.env/bin/python /var/users/gcartier/Server_monitoring/collector/collector_server.py
+User=gcartier
+Group=gcartier
+WorkingDirectory=/var/users/gcartier/Server_monitoring/collector
+RestartSec=3
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -11,7 +11,8 @@ def dump_json_to_file( dict, filename ) -> None :
 
 def main() -> None : 
     CWD = os.getcwd()
-    OUTPUT_FILE = "colleced_data.json"
+    OUTPUT_FILE = "collected_data.json"
+    print( os.path.join( CWD, OUTPUT_FILE ) )
     timestamp = datetime.now().strftime( "%d/%m/%Y %H:%M:%S" )
     platform_info = platform.uname()
     dump_json_to_file( { 'hostname' : platform_info.node, 'timestamp' : timestamp, 'system' : { 'os': platform_info.system, 'os_distri': platform_info.version, 'kernel': platform_info.release }}, os.path.join( CWD, OUTPUT_FILE ) )

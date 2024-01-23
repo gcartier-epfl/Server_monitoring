@@ -5,7 +5,7 @@ import os
 
 app = FastAPI()  
 CWD = os.getcwd()
-OUTPUT_FILE = "colleced_data.json"
+OUTPUT_FILE = "collected_data.json"
 
 def load_json_file( filename ) :
     with open( filename, 'r' ) as f :

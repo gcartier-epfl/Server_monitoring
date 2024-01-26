@@ -31,7 +31,7 @@
   - ...     
 
   
-## Focntionnement du système   
+## Fonctionnement du système   
 - Exécuter des scripts sur les serveurs en tant que *daemon* / services :  
 > voir  https://stackoverflow.com/questions/1603109/how-to-make-a-python-script-run-like-a-service-or-daemon-in-linux  
 
@@ -53,4 +53,34 @@
 - Running the server uvicorn as a service systemd : https://github.com/encode/uvicorn/issues/678
 > Créer son propre service systemd `https://www.shubhamdipt.com/blog/how-to-create-a-systemd-service-in-linux/`
 
+:arrow_right: Service systemd `server_monitor.service` up and running : Requêtes fonctionnent même en étant log out de la VM. :tada:
 
+## Check-list pour l'écriture du script d'installation  
+- :warning: Utiliser le localuser comme user et owner du système me semble plus adapté.
+
+- Création du venv
+
+- Installation (utiliser un fichier ressource.txt)  
+  - crontab (via python-crontab ?)
+  - fastapi 
+  - uvicorn  
+  
+- Ajout du cron-job  
+
+- Copie du service dans systemd 
+- Démarrage du service 
+- check du status 
+- Enable du service au boot  
+
+## Docker  
+:warning:  
+- `docker run` créé un nouveau container à partir d'une image  
+- `docker start` démarre un nouveau container précédemment stoppé
+
+## Visualisation des données  
+- voir __Grafana__  
+  - :arrow_right: Impliquera surement de mettre les données dans une base de données propre type MariaDB
+
+
+## TO DO   
+- Contrôle d'erreurs

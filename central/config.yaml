@@ -1,0 +1,7 @@
+Ubuntu_VM : 
+  alias : sbvm0023 
+  ip : "10.95.48.97"
+  
+RHEL_VM :
+  alias : sbvm0073
+  ip : "10.95.48.114"

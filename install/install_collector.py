@@ -22,7 +22,7 @@ def main() -> None :
     config = load_yaml( "config.yaml" )
     
     if not exists( config['workspace'] ) : makedirs( config['workspace' ] )
-    chown( config['workspace'], config['user'], config['group'] )
+    chown( config['workspace'], get_uid_from_user( config['user'] ), get_guid_from_group( config['group'] ) )
     popen( f"cp collector/*.py { join(config['workspace'], 'collector/') }" )
     popen( 'python3 -m pip install virtualenv' )
     popen( f"virtualenv { config['venv_name'] }")

@@ -2,14 +2,14 @@
 
 USER="gcartier" 
 GROUP="gcartier" 
-WORKSPACE="/var/users/gcartier/" 
-COLLECTOR_PATH="/var/users/gcartier/collector/"
+WORKSPACE="/var/users/gcartier/Server_monitoring" 
+COLLECTOR_PATH=$WORKSPACE/collector/
 VENV_NAME=".env"
 
 
 if [ ! -d $COLLECTOR_PATH ]; then
     sudo mkdir -p $COLLECTOR_PATH;
-    sudo chown $USER:$GROUP -r $WORKSPACE
+    sudo chown -R $USER:$GROUP $WORKSPACE
 fi
 
 cp ../collector/*.py $COLLECTOR_PATH

@@ -30,7 +30,8 @@ def catch_control( command : str ) -> None :
 def main() -> None :  
     config = load_yaml( "config.yaml" )
     
-    if not exists( config['workspace'] ) : makedirs( config['workspace' ] )
+    if not exists( config['workspace'] ) : 
+        makedirs( join( config['workspace' ], '/collector/' ) )
     chown( config['workspace'], get_uid_from_user( config['user'] ), get_guid_from_group( config['group'] ) )
     catch_control( f"cp collector/*.py { join(config['workspace'], 'collector/') }" )
     catch_control( 'python3 -m pip install virtualenv' )

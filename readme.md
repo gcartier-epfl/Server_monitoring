@@ -55,7 +55,7 @@
 
 :arrow_right: Service systemd `server_monitor.service` up and running : Requêtes fonctionnent même en étant log out de la VM. :tada:
 
-## Check-list pour l'écriture du script d'installation  
+## Installation
 - :warning: Utiliser le localuser comme user et owner du système me semble plus adapté.
 
 - Création du venv
@@ -72,10 +72,20 @@
 - check du status 
 - Enable du service au boot  
 
+### Procédure d'installation  
+- __Pour la partie CENTRAL :__
+  - Dans le Dockerfile : 
+    - `git clone` dans le `/home` 
+    - `mkdir Server_monitoring` dans le `/home` 
+    - Création et activation du venv  
+    - Installation des paquets python
+
 ## Docker  
 :warning:  
 - `docker run` créé un nouveau container à partir d'une image  
 - `docker start` démarre un nouveau container précédemment stoppé
+  
+- Exécuter des commandes depuis le container sur l'hôte : https://stackoverflow.com/questions/32163955/how-to-run-shell-script-on-host-from-docker-container
 
 ## Visualisation des données  
 - voir __Grafana__  

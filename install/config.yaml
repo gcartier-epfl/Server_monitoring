@@ -1,1 +1,4 @@
+user : "gcartier"
+group : "gcartier"
 workspace : "/var/users/gcartier" 
+venv_name : ".env"

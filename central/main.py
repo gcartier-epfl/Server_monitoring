@@ -26,8 +26,8 @@ def request_system_info( ip_address ) -> None :
     address = f'http://{ip_address}:{SERVER_PORT}/system_info'
     return requests.get( address ).text
 
-def harvest_info( config ) :  
-    for 
+# def harvest_info( config ) :  
+#     for 
 
 #########################################
 

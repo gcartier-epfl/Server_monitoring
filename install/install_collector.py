@@ -35,7 +35,7 @@ def main() -> None :
         makedirs( config['collector_path'] )
     chown( config['workspace'], get_uid_from_user( config['user'] ), get_guid_from_group( config['group'] ) )
     catch_control( f"cp collector/*.py { join(config['workspace'], 'collector/') }" )
-    catch_control( 'python3 -m pip install virtualenv' )
+    catch_control( 'python3 -m pip install --user virtualenv' )
     catch_control( f"virtualenv { config['venv_name'] }")
     catch_control( f"source { join( config['venv_name'], '/bin/activate' ) }" )
 

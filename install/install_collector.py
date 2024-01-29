@@ -1,5 +1,6 @@
 from os import mkdir, makedirs, chmod, chown, popen 
 from os.path import join, exists
+import sys
 import yaml
 from pwd import getpwnam
 from grp import getgrnam
@@ -16,6 +17,13 @@ def get_uid_from_user( user ) -> int :
 def get_guid_from_group( group ) -> int : 
     return getgrnam( group ).gr_gid
 
+def catch_control( command : str ) -> None : 
+    try : 
+        popen( command )
+    except Exception as error :
+         print( "An exception occurred:", type(error).__name__, ' - ', error )
+         sys.exit()
+
 
 
 def main() -> None :  
@@ -23,10 +31,10 @@ def main() -> None :
     
     if not exists( config['workspace'] ) : makedirs( config['workspace' ] )
     chown( config['workspace'], get_uid_from_user( config['user'] ), get_guid_from_group( config['group'] ) )
-    popen( f"cp collector/*.py { join(config['workspace'], 'collector/') }" )
-    popen( 'python3 -m pip install virtualenv' )
-    popen( f"virtualenv { config['venv_name'] }")
-    popen( f"source { join( config['venv_name'], '/bin/activate' ) }" )
+    catch_control( f"cp collector/*.py { join(config['workspace'], 'collector/') }" )
+    catch_control( 'python3 -m pip install virtualenv' )
+    catch_control( f"virtualenv { config['venv_name'] }")
+    catch_control( f"source { join( config['venv_name'], '/bin/activate' ) }" )
 
 
 

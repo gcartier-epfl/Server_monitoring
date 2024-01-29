@@ -26,7 +26,7 @@ def main() -> None :
     popen( f"cp collector/*.py { join(config['workspace'], 'collector/') }" )
     popen( 'python3 -m pip install virtualenv' )
     popen( f"virtualenv { config['venv_name'] }")
-    popen( f"source { join( config['venv_name'], "/bin/activate" ) }" )
+    popen( f"source { join( config['venv_name'], '/bin/activate' ) }" )
 
 
 

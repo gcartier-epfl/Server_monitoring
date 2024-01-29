@@ -12,7 +12,7 @@ if [ ! -d $COLLECTOR_PATH ]; then
     sudo chown -R $USER:$GROUP $WORKSPACE
 fi
 
-cp ../collector/*.py $COLLECTOR_PATH
+cp collector/*.py $COLLECTOR_PATH
 python3 -m pip install virtualenv 
 virtualenv $WORKSPACE/$VENV_NAME 
 source $WORKSPACE/$VENV_NAME/bin/activate

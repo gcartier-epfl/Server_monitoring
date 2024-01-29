@@ -1,5 +1,6 @@
 from os import mkdir, makedirs, chmod, chown, popen 
 from os.path import join, exists
+from subprocess import check_output
 import sys
 import yaml
 from pwd import getpwnam
@@ -19,7 +20,7 @@ def get_guid_from_group( group ) -> int :
 
 def catch_control( command : str ) -> None : 
     try : 
-        popen( command )
+        check_output( command, shell=True, executable="/bin/bash" )
     except Exception as error :
          print( "An exception occurred:", type(error).__name__, ' - ', error )
          sys.exit()

@@ -25,7 +25,7 @@ python3 -m pip install -r requirements.txt
 CRON_JOBS="$(crontab -l)"
 CRONJOB="SHELL=/bin/bash\n*/5     *       *       *	*    	cd /var/users/gcartier/Server_monitoring/collector/ && python3 /var/users/gcartier/Server_monitoring/collector/collector_data.py"
 
-if [ "$CRON_JOBS" = "$(echo -e $CRONJOB)" ]; then
+if [ "$CRON_JOBS" = "$(echo -e "$CRONJOB")" ]; then
     echo ">>> The collector cronjob is already installed";
 else
     (sudo crontab -u $USER -l; echo -e "$CRONJOB" ) | sudo crontab -u $USER - 

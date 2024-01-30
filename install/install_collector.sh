@@ -30,3 +30,11 @@ if [ "$CRON_JOBS" = "$(echo -e "$CRONJOB")" ]; then
 else
     (sudo crontab -u $USER -l; echo -e "$CRONJOB" ) | sudo crontab -u $USER - 
 fi
+
+if [ ! -f /etc/systemd/system/server_monitor.service ]; then 
+    sudo cp server_monitor.service /etc/systemd/system 
+    sudo systemctl daemon-reload 
+    sudo systemctl start server_monitor.service 
+    sudo systemctl status server_monitor.service 
+    sudo systemctl enable server_monitor.service
+fi

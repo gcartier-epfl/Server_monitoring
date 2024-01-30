@@ -22,4 +22,4 @@ python3 -m pip install -r requirements.txt
 
 # Ajout du cronjob au crontab  
 CRONJOB="SHELL=/bin/bash\n*/5     *       *       *	*    	cd /var/users/gcartier/Server_monitoring/collector/ && python3 /var/users/gcartier/Server_monitoring/collector/collector_data.py"
-(crontab -u $USER -l; echo -e "$CRONJOB" ) | crontab -u $USER - 
+(sudo crontab -u $USER -l; echo -e "$CRONJOB" ) | sudo crontab -u $USER - 

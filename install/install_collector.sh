@@ -5,8 +5,27 @@ GROUP="gcartier"
 WORKSPACE="/var/users/gcartier/Server_monitoring" 
 COLLECTOR_PATH=$WORKSPACE/collector/
 VENV_NAME=".env"
-DISTRI=$(. /etc/os-release; echo $ID)
 
+
+function is_debian_like {
+    DISTRI=$(. /etc/os-release; echo $ID)
+    DISTRI=${DISTRI,,} # TO LOWER CASE
+    if [ "$DISTRI" =~ ^(debian|ubuntu|mint)$ ]; then 
+        return true;
+    else 
+        return false;
+    fi
+}
+
+function is_redhat_like {
+    DISTRI=$(. /etc/os-release; echo $ID)
+    DISTRI=${DISTRI,,} # TO LOWER CASE
+    if [ "$DISTRI" =~ ^(redhat|rhel|fedora|centos)$ ]; then 
+        return true;
+    else 
+        return false;
+    fi
+}
 
 if [ ! -d $COLLECTOR_PATH ]; then
     sudo mkdir -p $COLLECTOR_PATH;
@@ -31,6 +50,9 @@ else
     (sudo crontab -u $USER -l; echo -e "$CRONJOB" ) | sudo crontab -u $USER - 
 fi
 
+if [ "$DISTRI"]
+
+# Install the systemd service
 if [ ! -f /etc/systemd/system/server_monitor.service ]; then 
     sudo cp server_monitor.service /etc/systemd/system 
     sudo systemctl daemon-reload 

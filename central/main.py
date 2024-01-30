@@ -2,6 +2,7 @@
 
 import yaml
 import requests
+import os
 from os import mkdir
 from os.path import join, exists
 
@@ -37,7 +38,11 @@ def main() -> None :
     if not exists( join( CWD, SERVER_DIR ) ) : mkdir( join( CWD, SERVER_DIR ) )
     if not exists( join( CWD, MENU_DIR ) ) : mkdir( join( CWD, MENU_DIR ) )
 
-    print( request_usage( config['myVM']['ip'] ) )
-    print( request_system_info( config['myVM']['ip'] ) )
+    for s in config : 
+        print( request_usage( config[s]['ip']) )
+        print( request_system_info( config[s]['ip'] ) )
+
+    # print( request_usage( config['myVM']['ip'] ) )
+    # print( request_system_info( config['myVM']['ip'] ) )
 
 main()
